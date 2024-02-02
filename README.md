@@ -1,16 +1,12 @@
 # schedule_event_getx
 
-A new Flutter project.
+A calender schedule event project.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+A few resources to get you started if this is Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Documentation : Report process of development app](https://1drv.ms/w/s!AkZwXFWoRmFYni71U7oY1os0qMc4?e=yGpb3U)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
