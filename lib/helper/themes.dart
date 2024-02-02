@@ -15,6 +15,7 @@ const Color matGreen = Color(0xFF296152);
 const Color cattegoryInPerson = Color(0xFFBCDCDA);
 const Color cattegoryCall = Color(0xFFCAB8E3);
 const Color mistyGrey = Color(0xFFBDBDBD);
+const Color containerGrey = Color(0xFF414141);
 
 //fonts
 figmaFontsize(int fontSize) {
