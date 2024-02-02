@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widget/bottom-sheet/bottom_sheet.dart';
+import '../widget/bottom-sheet/bottom_sheet_terms.dart';
 import '../widget/hires-profile/hires_profile_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomSheet: BottomSheetView.buildBottomSheet(context, screenWidth,screenHeight),
+      bottomSheet: BottomSheetTerms.buildBottomSheetTerms(context, screenWidth,screenHeight),
     );
   }
 }

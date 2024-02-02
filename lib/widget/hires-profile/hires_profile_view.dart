@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_event_getx/widget/hires-profile/user.dart';
 
 import '../../helper/themes.dart';
 
@@ -13,37 +14,7 @@ class HiresProfile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(Icons.arrow_back_ios_outlined),
-          Container(
-            child: Row(
-              children: [
-                ClipOval(
-                  child: Image.asset(
-                    "assets/image/profile.jpg",
-                    width: 50,
-                    height: 50,
-                  ),
-                ),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Jeff Wang",
-                      style: name(),
-                    ),
-                    Text(
-                      "@sarah.sports",
-                      style: subName(),
-                    ),
-                    Text(
-                      "Personal Trainer",
-                      style: subName(),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          UserProfile(backgroundColor: Colors.white,),
           SizedBox(width: 115,),
           Icon(Icons.menu),
         ],
