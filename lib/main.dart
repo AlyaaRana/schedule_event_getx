@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_event_getx/view/event_hasbeenseen_view.dart';
 import 'package:schedule_event_getx/view/home_page_view.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        home: HomePage()
+        home: EventSend()
     );
   }
 }

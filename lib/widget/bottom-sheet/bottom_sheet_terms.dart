@@ -38,8 +38,8 @@ class BottomSheetTerms extends StatelessWidget {
                   Center(
                     child: Container(
                       width: 36,
-                      height: 5, // Height of the horizontal line
-                      color: containerGrey, // Color of the horizontal line
+                      height: 5,
+                      color: containerGrey,
                     ),
                   ),
                   SizedBox(height: 20,),
@@ -54,7 +54,7 @@ class BottomSheetTerms extends StatelessWidget {
                         children: [
                           SwipeableButton(),
                           SizedBox(height: 15,),
-                          Text("Cancel", style: subtitle3(),)
+                          Text("Cancel", style: subtitle3(boscoGrey),)
                         ],
                       ),
                     ),

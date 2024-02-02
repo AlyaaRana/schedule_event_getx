@@ -19,7 +19,7 @@ class _SwipeableButtonState extends State<SwipeableButton> {
   Widget build(BuildContext context) {
     return SwipeableButtonView(
       buttonText: "Swipe to Accept",
-      buttontextstyle: subtitle3(),
+      buttontextstyle: subtitle3(boscoGrey),
       buttonWidget: Container(),
       buttonColor: Colors.grey,
       activeColor: Colors.transparent,

@@ -16,6 +16,7 @@ const Color cattegoryInPerson = Color(0xFFBCDCDA);
 const Color cattegoryCall = Color(0xFFCAB8E3);
 const Color mistyGrey = Color(0xFFBDBDBD);
 const Color containerGrey = Color(0xFF414141);
+const Color lushGreen = Color(0xFF006C66);
 
 //fonts
 figmaFontsize(int fontSize) {
@@ -23,22 +24,24 @@ figmaFontsize(int fontSize) {
 }
 
 //Sarah Chu
-TextStyle name() {
+TextStyle name(Color finalColor) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
-          color: Colors.black,
+          color:  finalColor,
           fontWeight: FontWeight.w600,
           fontSize: figmaFontsize(12)));
 }
 
 //@sarah.sports & Personal Trainer
-TextStyle subName() {
+TextStyle subName(Color finalColor) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
-          color: Colors.black,
+          color: finalColor,
           fontWeight: FontWeight.w300,
           fontSize: figmaFontsize(11)));
 }
+
+
 
 //Legal : Consultation for with regards to Intellectual Property, Copyrights, Trade Mark & other business ...
 TextStyle desc() {
@@ -106,13 +109,16 @@ TextStyle txtCoach() {
 }
 
 //Thursday, 19 March, 2024 19:30 - 20:00
-TextStyle txtTime() {
+TextStyle txtTime(Color finalColor) {
   return GoogleFonts.poppins(
-      textStyle: TextStyle(
-          color: blackPanther,
-          fontWeight: FontWeight.w300,
-          fontSize: figmaFontsize(10)));
+    textStyle: TextStyle(
+      color: finalColor,
+      fontWeight: FontWeight.w300,
+      fontSize: figmaFontsize(10),
+    ),
+  );
 }
+
 
 //Singapore Standard Time
 TextStyle txtStandartTime() {
@@ -150,12 +156,12 @@ TextStyle caption3() {
 }
 
 //Button "View Your Calender" "Swipe to accept" "cancel"
-TextStyle subtitle3() {
+TextStyle subtitle3(Color finalColor) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
-          color: blancoWhite,
+          color: finalColor,
           fontWeight: FontWeight.w400,
-          fontSize: figmaFontsize(16)));
+          fontSize: figmaFontsize(18)));
 }
 
 //pop up title "Terms & Conditions"
@@ -219,7 +225,7 @@ TextStyle txtSucces() {
       textStyle: TextStyle(
           color: blancoWhite,
           fontWeight: FontWeight.w700,
-          fontSize: figmaFontsize(24)));
+          fontSize: figmaFontsize(30)));
 }
 
 
