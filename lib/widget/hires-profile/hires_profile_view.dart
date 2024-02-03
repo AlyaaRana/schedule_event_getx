@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:schedule_event_getx/widget/hires-profile/user.dart';
 
 import '../../helper/themes.dart';
@@ -16,6 +17,11 @@ class HiresProfile extends StatelessWidget {
           Icon(Icons.arrow_back_ios_outlined),
           UserProfile(backgroundColor: Colors.white,),
           SizedBox(width: 115,),
+          Icon(
+            FontAwesomeIcons.circleInfo,
+            color: Colors.white,
+            size: 16,
+          ),
           Icon(Icons.menu),
         ],
       ),
