@@ -43,6 +43,8 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   icons_flutter: ^0.0.4
   table_calendar: ^3.0.9
+  http:
+  intl:
 
 dev_dependencies:
   flutter_test:
