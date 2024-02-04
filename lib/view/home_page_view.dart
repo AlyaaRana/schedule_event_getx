@@ -18,11 +18,11 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             HiresProfile(),
-            CalendarTable()
+
           ],
         ),
       ),
-      bottomSheet: BottomSheetView.buildBottomSheet(context, screenWidth,screenHeight),
+      // bottomSheet: BottomSheetView.buildBottomSheet(context, screenWidth,screenHeight),
     );
   }
 }
