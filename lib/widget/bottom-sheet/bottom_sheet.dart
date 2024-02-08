@@ -43,15 +43,15 @@ class BottomSheetView extends StatelessWidget {
                       children: [
                         Icon(Icons.calendar_month,size: 33,),
                         GestureDetector(
-                          onTap: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) {
-                                return ListCalender.buildBottomSheet(context, screenWidth, screenHeight);
-                              },
-                            );
-                          },
+                          // onTap: () {
+                          //   showModalBottomSheet(
+                          //     context: context,
+                          //     isScrollControlled: true,
+                          //     builder: (context) {
+                          //       return ListCalender.buildBottomSheet(context, screenWidth, screenHeight, List<Event> events);
+                          //     },
+                          //   );
+                          // },
                           child: Container(
                             width: 40,
                             height: 40,

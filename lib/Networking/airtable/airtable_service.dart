@@ -33,14 +33,14 @@ class Table {
 
   Table(this.base, this.tableName, {required this.apiKey});
 
-  Future<void> create(Map<String, dynamic> record) async {
+  Future<void> create(Map<String, dynamic> records) async {
     final response = await http.post(
-      Uri.parse('https://api.airtable.com/v0/schedule/Projects'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/ '),
       headers: {
         'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
         'Content-Type': 'application/json',
       },
-      body: jsonEncode({'fields': record}),
+      body: jsonEncode({'fields': records}),
     );
 
     if (response.statusCode != 200) {
@@ -48,14 +48,14 @@ class Table {
     }
   }
 
-  Future<void> update(Map<String, dynamic> record) async {
+  Future<void> update(Map<String, dynamic> records) async {
     final response = await http.patch(
-      Uri.parse('https://api.airtable.com/v0/schedule/Projects/${record['id']}'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/${records['id']}'),
       headers: {
         'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
         'Content-Type': 'application/json',
       },
-      body: jsonEncode({'fields': record['fields']}),
+      body: jsonEncode({'fields': records['fields']}),
     );
 
     if (response.statusCode != 200) {
@@ -63,9 +63,9 @@ class Table {
     }
   }
 
-  Future<void> delete(String recordId) async {
+  Future<void> delete(String recordsId) async {
     final response = await http.delete(
-      Uri.parse('https://api.airtable.com/v0/schedule/Projects/$recordId'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/$recordsId'),
       headers: {
         'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
       },
@@ -78,7 +78,7 @@ class Table {
 
   Future<List<Map<String, dynamic>>> list() async {
     final response = await http.get(
-      Uri.parse('https://api.airtable.com/v0/schedule/Projects'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/listRecords'),
       headers: {
         'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
       },
@@ -89,7 +89,7 @@ class Table {
     }
 
     final data = jsonDecode(response.body);
-    return List<Map<String, dynamic>>.from(data['records'].map((record) => record['fields']));
+    return List<Map<String, dynamic>>.from(data['records'].map((records) => records['fields']));
   }
 }
 
