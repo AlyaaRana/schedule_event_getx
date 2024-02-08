@@ -2,19 +2,17 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import '../../controller/airtable/airtable_service.dart';
-import '../../controller/airtable/record_controller.dart';
+import 'package:schedule_event_getx/Networking/postman/controller/event_listing_controller.dart';
 import '../../helper/themes.dart';
 
 class ListCalender extends StatelessWidget {
-  ListCalender({Key? key});
+  ListCalender({Key? key}) : super(key: key);
 
   static Widget buildBottomSheet(
       BuildContext context, double screenWidth, double screenHeight) {
-    final RecordController recordController = Get.put(RecordController(AirtableService(Airtable('pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939'))));
+    final EventController eventController = Get.put(EventController());
 
-    final String baseId = 'schedule';
-    final String tableName = 'Projects';
+    eventController.fetchEvents();
 
     return BottomSheet(
       onClosing: () {},
@@ -23,7 +21,6 @@ class ListCalender extends StatelessWidget {
       builder: (context) {
         return ClipRRect(
           child: Container(
-            height: 170,
             decoration: BoxDecoration(
               color: blancoWhite,
               borderRadius: BorderRadius.only(
@@ -39,40 +36,38 @@ class ListCalender extends StatelessWidget {
               ],
             ),
             width: screenWidth,
-            child: Container(
-              padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                      width: 30,
-                      height: 2, // Height of the horizontal line
+            child: SingleChildScrollView(
+              child: Container(
+                height: 250,
+                padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 30,
+                        height: 2, // Height of the horizontal line
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  FutureBuilder<List<Map<String, dynamic>>>(
-                      future: recordController.getRecords(baseId, tableName), // Pass the arguments here
-                      builder: ((context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
-                        } else if (snapshot.hasError) {
-                          return Text('Error: ${snapshot.error}');
-                        } else {
-                          return ListView.builder(
-                              itemCount: snapshot.data?.length,
-                              itemBuilder: (context, index) {
-                                final record = snapshot.data?[index];
-                                return ListTile(
-                                  title: Text(record?['fields']['Name']),
-                                  subtitle: Text(record?['fields']['Description']),
-                                );
-                              });
-                        }
-                      }),
-                  )
-                ],
+                    const SizedBox(height: 10),
+                    Obx(
+                          () => ListView.builder(
+                        itemCount: eventController.events.length,
+                        physics: NeverScrollableScrollPhysics(), // Disable scrolling of the inner ListView
+                        shrinkWrap: true, // Add this line
+                        itemBuilder: (context, index) {
+                          final event = eventController.events[index];
+                          return ListTile(
+                            leading: Icon(Icons.event),
+                            title: Text(event.title),
+                            subtitle: Text(event.description),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -83,6 +78,7 @@ class ListCalender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     throw UnimplementedError();
   }
 }
