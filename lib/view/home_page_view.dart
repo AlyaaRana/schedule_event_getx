@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
 import 'package:schedule_event_getx/widget/calender/calender_table.dart';
 import '../widget/bottom-sheet/bottom_sheet.dart';
 import '../widget/bottom-sheet/bottom_sheet_terms.dart';
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      // bottomSheet: BottomSheetView.buildBottomSheet(context, screenWidth,screenHeight),
+      bottomSheet: ListCalender.buildBottomSheet(context, screenWidth,screenHeight),
     );
   }
 }

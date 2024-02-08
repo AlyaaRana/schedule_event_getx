@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
 import '../../helper/themes.dart';
 
 class BottomSheetView extends StatelessWidget {
@@ -34,14 +35,6 @@ class BottomSheetView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Center(
-                  //   child: Container(
-                  //     width: 30,
-                  //     height: 2, // Height of the horizontal line
-                  //     color: Colors.black, // Color of the horizontal line
-                  //   ),
-                  // ),
-                  // SizedBox(height: 20,),
                   Text("Write a new message", style: message1(),),
                   Container(
                     padding: const EdgeInsets.only(top: 55),
@@ -49,17 +42,28 @@ class BottomSheetView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(Icons.calendar_month,size: 33,),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: boscoGrey,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              builder: (context) {
+                                return ListCalender.buildBottomSheet(context, screenWidth, screenHeight);
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: boscoGrey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

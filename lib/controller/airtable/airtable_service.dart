@@ -22,22 +22,22 @@ class Base {
   Base(this.airtable, this.baseId);
 
   Table table(String tableName) {
-    return Table(this, tableName);
+    return Table(this, tableName, apiKey: 'pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939');
   }
 }
 
 class Table {
   final Base base;
   final String tableName;
+  final String apiKey;
 
-  Table(this.base, this.tableName);
+  Table(this.base, this.tableName, {required this.apiKey});
 
   Future<void> create(Map<String, dynamic> record) async {
-    var schedule;
     final response = await http.post(
-      Uri.parse('https://api.airtable.com/v0/appjTOpNTc0Ks4uqX/Projects'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects'),
       headers: {
-        'Authorization': 'Bearer pat441atTxdMXPg5d.28d66d59734d17465e266dba5b6ef68b972b9bf835345889381baba94ac558b5',
+        'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
         'Content-Type': 'application/json',
       },
       body: jsonEncode({'fields': record}),
@@ -50,9 +50,9 @@ class Table {
 
   Future<void> update(Map<String, dynamic> record) async {
     final response = await http.patch(
-      Uri.parse('https://api.airtable.com/v0/appjTOpNTc0Ks4uqX/Projects/${record['id']}'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/${record['id']}'),
       headers: {
-        'Authorization': 'Bearer pat441atTxdMXPg5d.28d66d59734d17465e266dba5b6ef68b972b9bf835345889381baba94ac558b5',
+        'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
         'Content-Type': 'application/json',
       },
       body: jsonEncode({'fields': record['fields']}),
@@ -63,11 +63,24 @@ class Table {
     }
   }
 
+  Future<void> delete(String recordId) async {
+    final response = await http.delete(
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects/$recordId'),
+      headers: {
+        'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
+      },
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete record');
+    }
+  }
+
   Future<List<Map<String, dynamic>>> list() async {
     final response = await http.get(
-      Uri.parse('https://api.airtable.com/v0/appjTOpNTc0Ks4uqX/Projects'),
+      Uri.parse('https://api.airtable.com/v0/schedule/Projects'),
       headers: {
-        'Authorization': 'Bearer pat441atTxdMXPg5d.28d66d59734d17465e266dba5b6ef68b972b9bf835345889381baba94ac558b5',
+        'Authorization': 'Bearer pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939',
       },
     );
 
@@ -77,5 +90,15 @@ class Table {
 
     final data = jsonDecode(response.body);
     return List<Map<String, dynamic>>.from(data['records'].map((record) => record['fields']));
+  }
+}
+
+class AirtableService {
+  final Airtable _airtable;
+
+  AirtableService(this._airtable);
+
+  Base base(String baseId) {
+    return _airtable.base(baseId);
   }
 }

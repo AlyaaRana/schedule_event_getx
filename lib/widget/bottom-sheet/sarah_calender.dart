@@ -1,24 +1,21 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import '../../controller/airtable/airtable_service.dart';
+import '../../controller/airtable/record_controller.dart';
 import '../../helper/themes.dart';
 
 class ListCalender extends StatelessWidget {
-  const ListCalender({Key? key});
+  ListCalender({Key? key});
 
-  static get http => null;
+  static Widget buildBottomSheet(
+      BuildContext context, double screenWidth, double screenHeight) {
+    final RecordController recordController = Get.put(RecordController(AirtableService(Airtable('pat441atTxdMXPg5d.3dfd9ec90abd2edc8a65f2d422c486a4c7f5301928357c8262cb8dcbfa648939'))));
 
-  static Future<List<dynamic>> fetchRecords() async {
-    final response = await http.get(Uri.parse('https://api.airtable.com/v0/appjTOpNTc0Ks4uqX/Projects'));
-    if (response.statusCode == 200) {
-      return json.decode(response.body)['records'];
-    } else {
-      throw Exception('Failed to load records');
-    }
-  }
+    final String baseId = 'schedule';
+    final String tableName = 'Projects';
 
-
-  static Widget buildBottomSheet(BuildContext context, double screenWidth, double screenHeight) {
     return BottomSheet(
       onClosing: () {},
       backgroundColor: Colors.transparent,
@@ -52,35 +49,28 @@ class ListCalender extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 2, // Height of the horizontal line
-                      color: Colors.black, // Color of the horizontal line
                     ),
                   ),
-                  // SizedBox(height: 20,),
-                  Text("Sarah's Calender", style: message1(),),
-                  Expanded(
-                    child: FutureBuilder(
-                      future: fetchRecords(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
+                  const SizedBox(height: 10),
+                  FutureBuilder<List<Map<String, dynamic>>>(
+                      future: recordController.getRecords(baseId, tableName), // Pass the arguments here
+                      builder: ((context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return Center(child: CircularProgressIndicator());
+                        } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
-                        } else if (snapshot.hasData) {
-                          final records = snapshot.data;
-                          return ListView.builder(
-                            itemCount: records?.length,
-                            itemBuilder: (context, index) {
-                              final record = records![index];
-                              return ListTile(
-                                title: Text(record['Event Name']),
-                                subtitle: Text('Duration: ${record['Duration']}'),
-                                trailing: Text('Description: ${record['Description']}'),
-                              );
-                            },
-                          );
                         } else {
-                          return CircularProgressIndicator();
+                          return ListView.builder(
+                              itemCount: snapshot.data?.length,
+                              itemBuilder: (context, index) {
+                                final record = snapshot.data?[index];
+                                return ListTile(
+                                  title: Text(record?['fields']['Name']),
+                                  subtitle: Text(record?['fields']['Description']),
+                                );
+                              });
                         }
-                      },
-                    ),
+                      }),
                   )
                 ],
               ),
@@ -91,7 +81,8 @@ class ListCalender extends StatelessWidget {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    throw UnimplementedError();
   }
 }
