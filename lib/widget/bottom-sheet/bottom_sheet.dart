@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:schedule_event_getx/view/event_selectdate_view.dart';
 import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
 import '../../helper/themes.dart';
 
@@ -45,7 +48,7 @@ class BottomSheetView extends StatelessWidget {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
-                              isScrollControlled: true,
+                              isScrollControlled: false,
                               builder: (context) {
                                 return ListCalender.buildBottomSheet(context, screenWidth, screenHeight,);
                               },
@@ -53,20 +56,25 @@ class BottomSheetView extends StatelessWidget {
                           },
                           child: Icon(Icons.calendar_month,size: 33,),
                         ),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: boscoGrey,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => EventSelectDate());
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: boscoGrey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   )
