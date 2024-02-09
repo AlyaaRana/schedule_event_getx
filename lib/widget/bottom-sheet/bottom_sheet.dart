@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:schedule_event_getx/view/event_selectdate_view.dart';
 import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
 import '../../helper/themes.dart';
 
@@ -41,17 +44,22 @@ class BottomSheetView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.calendar_month,size: 33,),
                         GestureDetector(
-                          // onTap: () {
-                          //   showModalBottomSheet(
-                          //     context: context,
-                          //     isScrollControlled: true,
-                          //     builder: (context) {
-                          //       return ListCalender.buildBottomSheet(context, screenWidth, screenHeight, List<Event> events);
-                          //     },
-                          //   );
-                          // },
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: false,
+                              builder: (context) {
+                                return ListCalender.buildBottomSheet(context, screenWidth, screenHeight,);
+                              },
+                            );
+                          },
+                          child: Icon(Icons.calendar_month,size: 33,),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => EventSelectDate());
+                          },
                           child: Container(
                             width: 40,
                             height: 40,
@@ -66,7 +74,7 @@ class BottomSheetView extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   )

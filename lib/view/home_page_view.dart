@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
-import 'package:schedule_event_getx/widget/calender/calender_table.dart';
 import '../widget/bottom-sheet/bottom_sheet.dart';
-import '../widget/bottom-sheet/bottom_sheet_terms.dart';
 import '../widget/hires-profile/hires_profile_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,11 +16,10 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             HiresProfile(),
-
           ],
         ),
       ),
-      bottomSheet: ListCalender.buildBottomSheet(context, screenWidth,screenHeight),
+      bottomSheet: BottomSheetView.buildBottomSheet(context, screenWidth,screenHeight),
     );
   }
 }
