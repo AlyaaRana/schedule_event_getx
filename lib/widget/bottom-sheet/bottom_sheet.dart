@@ -41,29 +41,29 @@ class BottomSheetView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.calendar_month,size: 33,),
                         GestureDetector(
-                          // onTap: () {
-                          //   showModalBottomSheet(
-                          //     context: context,
-                          //     isScrollControlled: true,
-                          //     builder: (context) {
-                          //       return ListCalender.buildBottomSheet(context, screenWidth, screenHeight, List<Event> events);
-                          //     },
-                          //   );
-                          // },
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: boscoGrey,
-                            ),
-                            child: Center(
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              builder: (context) {
+                                return ListCalender.buildBottomSheet(context, screenWidth, screenHeight,);
+                              },
+                            );
+                          },
+                          child: Icon(Icons.calendar_month,size: 33,),
+                        ),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: boscoGrey,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
                             ),
                           ),
                         ),

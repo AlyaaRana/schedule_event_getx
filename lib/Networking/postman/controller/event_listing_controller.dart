@@ -11,7 +11,7 @@ class EventController extends GetxController {
   Future<void> fetchEvents() async {
     try {
       final response = await apiClient.get(
-          Uri.parse("https://3a172639-cb3d-453f-b24d-6f69847ce8dc.mock.pstmn.io/eventlist"));
+          Uri.parse("https://03e827df-d756-415c-8cba-6988f9848e1d.mock.pstmn.io/getevent"));
 
       if (response.statusCode == 200) {
         final jsonBody = json.decode(response.body);
@@ -41,4 +41,40 @@ class EventController extends GetxController {
       );
     }
   }
+
+  Future<void> createEvent(Event newEvent) async {
+    try {
+      final response = await apiClient.post(
+        Uri.parse("https://03e827df-d756-415c-8cba-6988f9848e1d.mock.pstmn.io/createevent"),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(newEvent.toJson()),
+      );
+
+      if (response.statusCode == 201) {
+        Get.snackbar(
+          "Success",
+          "Event created successfully!",
+          snackPosition: SnackPosition.BOTTOM,
+        );
+
+        await fetchEvents();
+      } else {
+        Get.snackbar(
+          "Error",
+          "Failed to create event. Status code: ${response.statusCode}",
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } catch (e) {
+      Get.snackbar(
+        "Error",
+        "Failed to create event due to exception: $e",
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
 }
+
+
