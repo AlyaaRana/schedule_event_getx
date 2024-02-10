@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/page/eventSent/view/event_hasbeenseen_view.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class SwipeableButton extends StatefulWidget {
@@ -36,7 +37,7 @@ class _SwipeableButtonState extends State<SwipeableButton> {
           context,
           PageTransition(
             type: PageTransitionType.fade,
-            child: const SwipeableButton(),
+            child:  EventSend(),
           ),
         );
 
