@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:schedule_event_getx/view/event_hasbeenseen_view.dart';
-import 'package:schedule_event_getx/view/home_page_view.dart';
-import 'package:schedule_event_getx/widget/calender/calender_table.dart';
+
+import 'Page/HomePage/View/home_page_view.dart';
 
 void main() {
   runApp(const MyApp());

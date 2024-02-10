@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/widget/hires-profile/user.dart';
+import 'package:schedule_event_getx/Page/HomePage/Widget/user.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../helper/themes.dart';
-import '../widget/button_view_calender.dart';
+import '../../../helper/themes.dart';
+import '../Widget/button_view_calender.dart';
 
 class EventSend extends StatelessWidget {
   const EventSend({Key? key}) : super(key: key);

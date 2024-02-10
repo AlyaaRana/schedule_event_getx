@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
-import '../../helper/themes.dart';
+import 'package:schedule_event_getx/Page/HomePage/Widget/sarah_calender.dart';
+import '../../../helper/themes.dart';
 
 class BottomSheetView extends StatelessWidget {
   const BottomSheetView({Key? key});
