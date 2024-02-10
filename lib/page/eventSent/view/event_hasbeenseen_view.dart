@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/widget/hires-profile/user.dart';
+import 'package:schedule_event_getx/Page/HomePage/Widget/user.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../helper/themes.dart';
-import '../widget/button_view_calender.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
+import '../../../helper/themes.dart';
+import '../Widget/button_view_calender.dart';
 
 class EventSend extends StatelessWidget {
   const EventSend({Key? key}) : super(key: key);
@@ -52,17 +53,7 @@ class EventSend extends StatelessWidget {
                         SizedBox(height: 30,),
                         UserProfile(backgroundColor: lushGreen,),
                         SizedBox(height: 35,),
-                        Row(
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.globe,
-                              color: Colors.white,
-                              size: 16,
-                            ),
-                            SizedBox(width: 5,),
-                            Text("Singapore Standard Time", style: txtTime(Colors.white),),
-                          ],
-                        ),
+                        SingaporeTime(iconColor: blancoWhite, textColor:blancoWhite),
                       ],
                     )
                   ),

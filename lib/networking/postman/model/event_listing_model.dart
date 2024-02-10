@@ -3,14 +3,14 @@ import 'package:intl/intl.dart';
 
 
 class Event {
-  final String title;
+  late final String title;
   final String description;
-  final String type;
-  final Duration duration;
-  final DateTime date;
-  final TimeOfDay startTime;
-  final TimeOfDay endTime;
-  final String note;
+  late final String type;
+  late final Duration duration;
+  late final DateTime date;
+  late final TimeOfDay startTime;
+  late final TimeOfDay endTime;
+  late final String note;
 
   Event({
     required this.title,

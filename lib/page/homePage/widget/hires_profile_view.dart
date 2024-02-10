@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:schedule_event_getx/widget/hires-profile/user.dart';
+import 'package:schedule_event_getx/Page/HomePage/Widget/user.dart';
 
-import '../../helper/themes.dart';
+import '../../../helper/themes.dart';
 
 class HiresProfile extends StatelessWidget {
   const HiresProfile({Key? key});

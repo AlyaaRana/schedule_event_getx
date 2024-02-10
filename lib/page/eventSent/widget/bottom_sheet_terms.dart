@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
-import 'package:schedule_event_getx/widget/swipe-button/swipeable_button.dart';
+import 'package:schedule_event_getx/Page/EventSent/Widget/swipeable_button.dart';
 
 class BottomSheetTerms extends StatelessWidget {
   const BottomSheetTerms({super.key});

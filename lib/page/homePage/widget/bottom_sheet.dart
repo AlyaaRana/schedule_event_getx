@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:schedule_event_getx/view/event_selectdate_view.dart';
-import 'package:schedule_event_getx/widget/bottom-sheet/sarah_calender.dart';
-import '../../helper/themes.dart';
+import 'package:schedule_event_getx/Page/HomePage/Widget/sarah_calender.dart';
+import 'package:schedule_event_getx/helper/themes.dart';
+
 
 class BottomSheetView extends StatelessWidget {
   const BottomSheetView({Key? key});
@@ -48,7 +46,7 @@ class BottomSheetView extends StatelessWidget {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
-                              isScrollControlled: false,
+                              isScrollControlled: true,
                               builder: (context) {
                                 return ListCalender.buildBottomSheet(context, screenWidth, screenHeight,);
                               },
@@ -56,25 +54,20 @@ class BottomSheetView extends StatelessWidget {
                           },
                           child: Icon(Icons.calendar_month,size: 33,),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => EventSelectDate());
-                          },
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: boscoGrey,
-                            ),
-                            child: Center(
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: boscoGrey,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   )

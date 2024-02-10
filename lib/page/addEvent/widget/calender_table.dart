@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
+import 'package:get/get.dart';
 
 class CalendarTable extends StatefulWidget {
-  const CalendarTable({Key? key}) : super(key: key);
+  final Function(DateTime) onDateSelected;
+
+  const CalendarTable({Key? key, required this.onDateSelected}) : super(key: key);
 
   @override
   State<CalendarTable> createState() => _CalendarTableState();
 }
 
 class _CalendarTableState extends State<CalendarTable> {
-  DateTime today = DateTime.now();
+  DateTime selectedDate = DateTime.now();
+  final AddEventController eventController = Get.find<AddEventController>();
 
   void _onDaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
-      today = day;
+      selectedDate = day;
+      eventController.updateDate(day);
     });
+
+    // Trigger the callback
+    widget.onDateSelected(day);
   }
 
   @override
@@ -27,7 +36,7 @@ class _CalendarTableState extends State<CalendarTable> {
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Text(
-              DateFormat('yyyy-MM-dd').format(today),
+              DateFormat('yyyy-MM-dd').format(selectedDate),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
@@ -42,8 +51,8 @@ class _CalendarTableState extends State<CalendarTable> {
                   titleCentered: true,
                 ),
                 availableGestures: AvailableGestures.all,
-                selectedDayPredicate: (day) => isSameDay(day, today),
-                focusedDay: today,
+                selectedDayPredicate: (day) => isSameDay(day, selectedDate),
+                focusedDay: selectedDate,
                 firstDay: DateTime.utc(2010, 1, 1),
                 lastDay: DateTime.utc(2030, 12, 30),
                 onDaySelected: _onDaySelected,
