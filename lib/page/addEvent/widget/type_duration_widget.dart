@@ -13,8 +13,8 @@ class TypeDurationWidget extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Container(
-        width: 75,
-        height: 75,
+        width: 72,
+        height: 72,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: muteGrey,
@@ -24,14 +24,14 @@ class TypeDurationWidget extends StatelessWidget {
           children: [
             Icon(
               image,
-              size: 25,
+              size: 20,
               color: Colors.black54,
             ),
             SizedBox(height: 15),
             Text(
               text,
               textAlign: TextAlign.center,
-              style: caption3(),
+              style: txtCattegory(),
             ),
           ],
         ),

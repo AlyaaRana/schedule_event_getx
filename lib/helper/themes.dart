@@ -59,7 +59,7 @@ TextStyle subCalender() {
       textStyle: TextStyle(
           color: ashGrey,
           fontWeight: FontWeight.w500,
-          fontSize: figmaFontsize(18)));
+          fontSize: figmaFontsize(16)));
 }
 
 //2hr Personal Training
@@ -69,6 +69,15 @@ TextStyle titleEvent() {
           color: ashGrey,
           fontWeight: FontWeight.w700,
           fontSize: figmaFontsize(14)));
+}
+
+//2hr Personal Training
+TextStyle txtTitleAdd() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: blackPanther,
+          fontWeight: FontWeight.w700,
+          fontSize: figmaFontsize(18)));
 }
 
 //Privater Training Sessions, Adult Group Class
