@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:schedule_event_getx/Networking/postman/controller/event_listing_controller.dart';
 import '../../../helper/themes.dart';
 
-class ListCalender extends StatelessWidget {
-  ListCalender({Key? key}) : super(key: key);
+class ListCalenderWidget extends StatelessWidget {
+  ListCalenderWidget({Key? key}) : super(key: key);
 
   static Widget buildBottomSheet(
       BuildContext context, double screenWidth, double screenHeight) {

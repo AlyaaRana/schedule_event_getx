@@ -6,9 +6,9 @@ import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_widget.dart';
 
-class AddEvent extends StatelessWidget {
+class EventAddTime extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
-  AddEvent({super.key});
+   EventAddTime({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,10 @@ class AddEvent extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.arrow_back_ios_outlined, size: 15,),
-                SizedBox(width: 15,),
-                Text("Add New Event", style: subCalender(),)
+                Icon(Icons.arrow_back_ios_outlined,size: 15,),
+                SizedBox(width: 10,),
+                Text("Add New Event", style: titleEvent(),)
               ],
-            ),
-            TextField(
-              controller: addEventController.titleController,
-              decoration: InputDecoration(labelText: 'Title'),
             ),
             Row(
               children: [

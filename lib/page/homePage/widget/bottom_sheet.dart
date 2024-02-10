@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_event_getx/Page/HomePage/Widget/sarah_calender.dart';
+import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/page/addEvent/view/event_add_title.dart';
+import 'package:schedule_event_getx/page/sarahCalender/view/list_calender_view.dart';
 
 
 class BottomSheetView extends StatelessWidget {
@@ -44,30 +46,30 @@ class BottomSheetView extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) {
-                                return ListCalender.buildBottomSheet(context, screenWidth, screenHeight,);
-                              },
-                            );
+                            Get.to(ListCalenderView());
                           },
                           child: Icon(Icons.calendar_month,size: 33,),
                         ),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: boscoGrey,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(AddEvent());
+                          },
+                          child:Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: boscoGrey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
+
                       ],
                     ),
                   )
