@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class CalendarTable extends StatefulWidget {
 
 
-  const CalendarTable({Key? key,}) : super(key: key);
+  CalendarTable({Key? key,}) : super(key: key);
 
   @override
   State<CalendarTable> createState() => _CalendarTableState();
@@ -20,11 +20,14 @@ class _CalendarTableState extends State<CalendarTable> {
   void _onDaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
       selectedDate = day;
-      eventController.updateDate(day);
     });
 
-
+    // if (eventController != null) {
+    //   eventController.updateDate(day);
+    // }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +35,13 @@ class _CalendarTableState extends State<CalendarTable> {
       height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(5.0),
-          //   child: Text(
-          //     DateFormat('yyyy-MM-dd').format(selectedDate),
-          //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              DateFormat('yyyy-MM-dd').format(selectedDate),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
           Expanded(
             child: Container(
               margin: EdgeInsets.all(8.0),

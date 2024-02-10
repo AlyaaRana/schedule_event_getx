@@ -90,6 +90,14 @@ TextStyle subTitleEvent() {
           fontSize: figmaFontsize(10)));
 }
 
+TextStyle subType() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: ashGrey,
+          fontWeight: FontWeight.w300,
+          fontSize: figmaFontsize(9)));
+}
+
 //Schedule Event
 TextStyle txtScheduleEvent() {
   return GoogleFonts.poppins(
