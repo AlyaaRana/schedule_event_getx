@@ -46,15 +46,16 @@ class BottomSheetView extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.to(ListCalenderView());
+                            Get.to(() => ListCalenderView());
                           },
-                          child: Icon(Icons.calendar_month,size: 33,),
+                          child: Icon(Icons.calendar_month, size: 33,),
                         ),
+
                         GestureDetector(
                           onTap: () {
-                            Get.to(AddEvent());
+                            Get.to(() => AddEvent());
                           },
-                          child:Container(
+                          child: Container(
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
@@ -69,7 +70,6 @@ class BottomSheetView extends StatelessWidget {
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   )
