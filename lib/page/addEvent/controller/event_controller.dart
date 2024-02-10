@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/networking/postman/model/event_listing_model.dart';
+import 'package:schedule_event_getx/Networking/postman/model/event_listing_model.dart';
 
 class AddEventController extends GetxController {
   var event = Event(
     title: "",
-    description: "description",
+    description: "",
     type: "",
     duration: Duration(),
     date: DateTime.now(),
@@ -14,21 +14,29 @@ class AddEventController extends GetxController {
     note: "",
   ).obs;
 
+  final TextEditingController noteController = TextEditingController();
+  final TextEditingController typeController = TextEditingController();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController durationController = TextEditingController();
+
+  @override
+  void onClose() {
+    noteController.dispose();
+    typeController.dispose();
+    titleController.dispose();
+    durationController.dispose();
+    super.onClose();
+  }
+
+  void updateNote(String note) {
+    event.update((val) {
+      val!.note = note;
+    });
+  }
+
   void updateTitle(String title) {
     event.update((val) {
       val!.title = title;
-    });
-  }
-
-  void updateType(String type) {
-    event.update((val) {
-      val!.type = type;
-    });
-  }
-
-  void updateDuration(Duration duration) {
-    event.update((val) {
-      val!.duration = duration;
     });
   }
 
@@ -50,13 +58,25 @@ class AddEventController extends GetxController {
     });
   }
 
-  void updateNote(String note) {
+  void updateDuration(String durationString) {
+    // Convert string to integer and set the duration
+    int durationMinutes = int.tryParse(durationString) ?? 0;
     event.update((val) {
-      val!.note = note;
+      val!.duration = Duration(minutes: durationMinutes);
+    });
+  }
+
+  void updateType(String type) {
+    event.update((val) {
+      val!.type = type;
     });
   }
 
   void clearEvent() {
+    noteController.clear();
+    typeController.clear();
+    titleController.clear();
+    durationController.clear();
     event.value = Event(
       title: "",
       description: "description",

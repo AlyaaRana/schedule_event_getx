@@ -17,6 +17,7 @@ const Color cattegoryCall = Color(0xFFCAB8E3);
 const Color mistyGrey = Color(0xFFBDBDBD);
 const Color containerGrey = Color(0xFF414141);
 const Color lushGreen = Color(0xFF006C66);
+const Color matPastel = Color(0xFFB8DFD7);
 
 //fonts
 figmaFontsize(int fontSize) {
@@ -57,8 +58,8 @@ TextStyle subCalender() {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
           color: ashGrey,
-          fontWeight: FontWeight.w300,
-          fontSize: figmaFontsize(16)));
+          fontWeight: FontWeight.w500,
+          fontSize: figmaFontsize(18)));
 }
 
 //2hr Personal Training
@@ -144,6 +145,22 @@ TextStyle caption2() {
           color: blancoWhite,
           fontWeight: FontWeight.w600,
           fontSize: figmaFontsize(12)));
+}
+
+TextStyle txtCapt() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w600,
+          fontSize: figmaFontsize(12)));
+}
+
+TextStyle txtDuration() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w300,
+          fontSize: figmaFontsize(11)));
 }
 
 //notes/readmore
