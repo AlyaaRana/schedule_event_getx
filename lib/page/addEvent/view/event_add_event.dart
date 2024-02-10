@@ -33,20 +33,13 @@ class AddEvent extends StatelessWidget {
                 TypeDurationWidget(
                   image: Icons.directions_run,
                   text: 'In-Person',
-                  // controller: addEventController.typeController,
-                  // onChanged: (value) {
-                  //   addEventController.updateType(value);
-                  // },
+
                 ),TypeDurationWidget(
                   image: Icons.access_time,
-                  text: 'Work',
-                  // controller: addEventController.durationController,
-                  // onChanged: (value) {
-                  //   addEventController.updateType(value);
-                  // },
+                  text: '30',
                 ),TypeDurationWidget(
-                  image: Icons.people,
-                  text: 'Work',
+                  image: Icons.plus_one,
+                  text: 'Multiple',
                 ),
               ],
             ),
@@ -55,7 +48,7 @@ class AddEvent extends StatelessWidget {
             SizedBox(height: 20,),
             Text("Select Time",style: txtCapt(),),
             SizedBox(height: 10,),
-            Text("Duration",style: txtDuration(),)
+            Text("Duration : 30",style: txtDuration(),)
           ],
         ),
       ),

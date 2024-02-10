@@ -163,6 +163,14 @@ TextStyle txtDuration() {
           fontSize: figmaFontsize(11)));
 }
 
+TextStyle txtB() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w300,
+          fontSize: figmaFontsize(11)));
+}
+
 //notes/readmore
 TextStyle caption3() {
   return GoogleFonts.poppins(
@@ -229,6 +237,14 @@ TextStyle popupInfo() {
 
 //Schedule Session
 TextStyle txtButton() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: blancoWhite,
+          fontWeight: FontWeight.w700,
+          fontSize: figmaFontsize(17)));
+}
+
+TextStyle txtAddNewEvent() {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
           color: boscoGrey,

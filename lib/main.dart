@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
-import 'Page/AddEvent/View/event_add_event.dart';
-import 'Page/HomePage/View/home_page_view.dart';
+import 'package:schedule_event_getx/page/addEvent/view/event_add_event.dart';
+import 'package:schedule_event_getx/page/addNote/view/event_addnote_view.dart';
 
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         title: 'Flutter Demo',
-        home: AddEvent()
+        home: EventAddNote()
     );
   }
 }

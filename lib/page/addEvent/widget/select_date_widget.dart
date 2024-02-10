@@ -16,7 +16,7 @@ class SelectDate extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           color: matPastel,
         ),
-        child: Text("",style: caption3(),)
+        child: Text("",style: txtCattegory(),)
       ),
     );
   }
