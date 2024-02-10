@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
 class CalendarTable extends StatefulWidget {
-  const CalendarTable({Key? key}) : super(key: key);
+  final Function(DateTime) onDateSelected;
+
+  const CalendarTable({Key? key, required this.onDateSelected}) : super(key: key);
 
   @override
   State<CalendarTable> createState() => _CalendarTableState();
@@ -20,6 +22,9 @@ class _CalendarTableState extends State<CalendarTable> {
       selectedDate = day;
       eventController.updateDate(day);
     });
+
+    // Trigger the callback
+    widget.onDateSelected(day);
   }
 
   @override
