@@ -28,7 +28,7 @@ class ScheduleSessionButton extends StatelessWidget {
         child: Center(
           child: Text(
             "Schedule sessions for 60",
-            style: txtButton(),
+            style: txtButton(blancoWhite),
           ),
         ),
       ),

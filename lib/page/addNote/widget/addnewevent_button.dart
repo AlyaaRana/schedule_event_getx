@@ -16,7 +16,7 @@ class AddNewButton extends StatelessWidget {
       child: Center(
         child: Text(
           "Add New Event",
-          style: txtAddNewEvent(),
+          style: txtButton(blackPanther),
         ),
       ),
     );

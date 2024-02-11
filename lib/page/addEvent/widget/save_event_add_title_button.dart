@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/page/addEvent/view/event_add_time.dart';
 
 class ButtonSaveTitle extends StatelessWidget {
   const ButtonSaveTitle({super.key});
@@ -9,6 +10,7 @@ class ButtonSaveTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Get.to(EventAddTime());
       },
       child: Container(
         height: 48,
@@ -19,8 +21,8 @@ class ButtonSaveTitle extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            "Save New Event",
-            style: txtButton(),
+            "Save",
+            style: txtButton(blancoWhite),
           ),
         ),
       ),

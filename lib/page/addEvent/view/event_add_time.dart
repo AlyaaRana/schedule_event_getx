@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/nextto_add_note_button.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 
 class EventAddTime extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
@@ -20,31 +22,19 @@ class EventAddTime extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.arrow_back_ios_outlined,size: 15,),
-                SizedBox(width: 10,),
+                SizedBox(width: 5,),
                 Text("Add New Event", style: titleEvent(),)
               ],
             ),
-            Row(
-              children: [
-                TypeDurationWidget(
-                  image: Icons.directions_run,
-                  text: 'In-Person',
-
-                ),TypeDurationWidget(
-                  image: Icons.access_time,
-                  text: '30',
-                ),TypeDurationWidget(
-                  image: Icons.plus_one,
-                  text: 'Multiple',
-                ),
-              ],
-            ),
+            TypeDurationSession(),
             SelectDate(),
             SingaporeTime(iconColor: Colors.black, textColor: Colors.black),
             SizedBox(height: 20,),
             Text("Select Time",style: txtCapt(),),
             SizedBox(height: 10,),
-            Text("Duration : 30",style: txtDuration(),)
+            Text("Duration : 30",style: txtDuration(),),
+            NextToAddNote()
+
           ],
         ),
       ),

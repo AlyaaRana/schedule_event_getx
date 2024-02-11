@@ -4,9 +4,7 @@ import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/save_event_add_title_button.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/select_type_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/select_type_radiobuttons.dart';
 
 class AddEvent extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
@@ -22,9 +20,9 @@ class AddEvent extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.arrow_back_ios_outlined),
+                Icon(Icons.arrow_back_ios_outlined, size: 15,),
                 SizedBox(width: 5,),
-                Text("Add New Event", style: txtTitleAdd(),)
+                Text("Add New Event", style: titleEvent(),)
               ],
             ),
               Container(

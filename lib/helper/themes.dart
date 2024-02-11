@@ -253,10 +253,10 @@ TextStyle popupInfo() {
 }
 
 //Schedule Session
-TextStyle txtButton() {
+TextStyle txtButton(Color finalColor) {
   return GoogleFonts.poppins(
       textStyle: TextStyle(
-          color: blancoWhite,
+          color: finalColor,
           fontWeight: FontWeight.w700,
           fontSize: figmaFontsize(17)));
 }
