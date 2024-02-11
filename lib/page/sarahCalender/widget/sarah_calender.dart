@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/Networking/postman/controller/event_listing_controller.dart';
+import 'package:schedule_event_getx/Networking/postman/controller/event_controller.dart';
 import 'package:schedule_event_getx/page/sarahCalender/widget/listview.dart';
 import '../../../helper/themes.dart';
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
-import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
+import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/save_event_add_title_button.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/select_type_radiobuttons.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/textfield/numerid_field.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/textfield/text_field.dart';
+
 
 class AddEvent extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
-  TextEditingController titleController = TextEditingController();
   AddEvent({super.key});
 
   @override
@@ -33,126 +33,24 @@ class AddEvent extends StatelessWidget {
                     SizedBox(height: 10,),
                     Text("Please fill out this form before scheduling an appointment with Sarah.Thank you for your cooperation",style: caption3(),),
                     SizedBox(height: 30,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Input Event Name",
-                          textAlign: TextAlign.left,
-                          style: txtCapt(),
-                        ),
-                        SizedBox(height: 10,),
-                        TextField(
-                          controller: titleController,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black),
-                              borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 2.0),
-                            labelStyle: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ],
+                    CustomTextField(
+                      controller: addEventController.titleController,
+                      labelText: 'Input title event',
                     ),
                     SizedBox(height: 25,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Select a type event",
-                          textAlign: TextAlign.left,
-                          style: txtCapt(),
-                        ),
-                        SizedBox(height: 5,),
-                        Row(
-                          children: [
-                            SelectType(
-                              text: 'In-Person',
-                              onClicked: () {  },
-                            ),
-                            SelectType(
-                              text: 'Call',
-                              onClicked: () {  },
-                            ),
-                          ],
-                        )
-                      ],
+                    CustomTextField(
+                      controller: addEventController.typeController,
+                      labelText: 'Input type',
                     ),
                     SizedBox(height: 25,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Input duration",
-                          textAlign: TextAlign.left,
-                          style: txtCapt(),
-                        ),
-                        SizedBox(height: 10,),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: TextField(
-                                  controller: titleController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.black),
-                                      borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                                    labelStyle: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10,),
-                            Text("Minute",style: txtCapt(),),
-                            SizedBox(width: 165,)
-
-                          ],
-                        )
-                      ],
+                    NumericInputField(
+                      controller: addEventController.durationController,
+                      labelText: "Input duration",
+                      width: 200, // Provide a specific width
                     ),
-                    SizedBox(height: 25,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Input session",
-                          textAlign: TextAlign.left,
-                          style: txtCapt(),
-                        ),
-                        SizedBox(height: 10,),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: TextField(
-                                  controller: titleController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.black),
-                                      borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                                    labelStyle: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 15,),
-                            Text(""),
-                            SizedBox(width: 200,)
-                          ],
-                        )
-                      ],
+                    CustomTextField(
+                      controller: addEventController.sessionController,
+                      labelText: 'Add session',
                     ),
                     SizedBox(height: 50,),
                     ButtonSaveTitle()

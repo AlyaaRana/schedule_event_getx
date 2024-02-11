@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/Networking/postman/model/event_listing_model.dart';
+import 'package:schedule_event_getx/Networking/postman/model/event_model.dart';
 
 class AddEventController extends GetxController {
   Rx<DateTime?> selectedDate = Rx<DateTime?>(null);
@@ -18,6 +18,7 @@ class AddEventController extends GetxController {
     startTime: TimeOfDay.now(),
     endTime: TimeOfDay.now(),
     note: "",
+    session: "",
   ).obs;
 
 
@@ -25,6 +26,7 @@ class AddEventController extends GetxController {
   final TextEditingController typeController = TextEditingController();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController durationController = TextEditingController();
+  final TextEditingController sessionController = TextEditingController();
 
   @override
   void onClose() {
@@ -32,6 +34,7 @@ class AddEventController extends GetxController {
     typeController.dispose();
     titleController.dispose();
     durationController.dispose();
+    sessionController.dispose();
     super.onClose();
   }
 
@@ -41,20 +44,11 @@ class AddEventController extends GetxController {
     });
   }
 
-
-
-
   void updateTitle(String title) {
     event.update((val) {
       val!.title = title;
     });
   }
-
-  // void updateDate(DateTime date) {
-  //   event.update((val) {
-  //     val!.date = date;
-  //   });
-  // }
 
   void updateTime(TimeOfDay time) {
     event.update((val) {
@@ -69,7 +63,6 @@ class AddEventController extends GetxController {
   }
 
   void updateDuration(String durationString) {
-    // Convert string to integer and set the duration
     int durationMinutes = int.tryParse(durationString) ?? 0;
     event.update((val) {
       val!.duration = Duration(minutes: durationMinutes);
@@ -87,6 +80,7 @@ class AddEventController extends GetxController {
     typeController.clear();
     titleController.clear();
     durationController.clear();
+    sessionController.clear();
     event.value = Event(
       title: "",
       description: "description",
@@ -96,6 +90,7 @@ class AddEventController extends GetxController {
       startTime: TimeOfDay.now(),
       endTime: TimeOfDay.now(),
       note: "",
+      session: '',
     );
   }
 }
