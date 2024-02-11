@@ -20,6 +20,7 @@ class AddEventController extends GetxController {
     note: "",
   ).obs;
 
+
   final TextEditingController noteController = TextEditingController();
   final TextEditingController typeController = TextEditingController();
   final TextEditingController titleController = TextEditingController();
@@ -39,6 +40,9 @@ class AddEventController extends GetxController {
       val!.note = note;
     });
   }
+
+
+
 
   void updateTitle(String title) {
     event.update((val) {
