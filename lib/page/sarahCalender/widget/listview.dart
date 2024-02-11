@@ -15,7 +15,6 @@ class ListViewCalender extends StatelessWidget {
         itemCount: eventController.events.length,
         itemBuilder: (context, index) {
           final event = eventController.events[index];
-
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -16,7 +16,7 @@ class HiresProfile extends StatelessWidget {
         children: [
           Icon(Icons.arrow_back_ios_outlined,size: 15,),
           UserProfile(backgroundColor: Colors.white,),
-          SizedBox(width: 115,),
+          SizedBox(width: 150,),
           Icon(
             FontAwesomeIcons.circleInfo,
             color: Colors.white,

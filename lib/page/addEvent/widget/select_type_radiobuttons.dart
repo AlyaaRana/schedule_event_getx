@@ -20,7 +20,6 @@ class SelectType extends StatelessWidget {
         style: caption3(),
       ),
       style: ButtonStyle(
-        // backgroundColor: MaterialStateProperty.all(Colors.white),
         foregroundColor: MaterialStateProperty.all(Colors.black),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
