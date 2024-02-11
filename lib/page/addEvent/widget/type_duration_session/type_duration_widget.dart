@@ -10,7 +10,7 @@ class TypeDurationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Container(
         width: 72,

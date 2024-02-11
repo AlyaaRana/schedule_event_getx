@@ -258,7 +258,7 @@ TextStyle txtButton(Color finalColor) {
       textStyle: TextStyle(
           color: finalColor,
           fontWeight: FontWeight.w700,
-          fontSize: figmaFontsize(17)));
+          fontSize: figmaFontsize(14)));
 }
 
 TextStyle txtAddNewEvent() {

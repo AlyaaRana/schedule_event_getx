@@ -5,12 +5,14 @@ import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
 class CalendarTable extends StatefulWidget {
-
-
-  CalendarTable({Key? key,}) : super(key: key);
+  CalendarTable({Key? key}) : super(key: key);
 
   @override
   State<CalendarTable> createState() => _CalendarTableState();
+
+  DateTime getSelectedDate(BuildContext context) {
+    return (_CalendarTableState.of(context) as _CalendarTableState).selectedDate;
+  }
 }
 
 class _CalendarTableState extends State<CalendarTable> {
@@ -21,13 +23,7 @@ class _CalendarTableState extends State<CalendarTable> {
     setState(() {
       selectedDate = day;
     });
-
-    // if (eventController != null) {
-    //   eventController.updateDate(day);
-    // }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +31,13 @@ class _CalendarTableState extends State<CalendarTable> {
       height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Text(
-              DateFormat('yyyy-MM-dd').format(selectedDate),
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+          ElevatedButton(
+            onPressed: () {
+              // Pass the selected date back to the previous screen
+              eventController.updateDate(selectedDate);
+              Get.back();
+            },
+            child: Text("Select Day"),
           ),
           Expanded(
             child: Container(
@@ -65,4 +62,7 @@ class _CalendarTableState extends State<CalendarTable> {
       ),
     );
   }
+
+  static _CalendarTableState of(BuildContext context) =>
+      context.findAncestorStateOfType<_CalendarTableState>()!;
 }

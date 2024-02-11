@@ -3,6 +3,12 @@ import 'package:get/get.dart';
 import 'package:schedule_event_getx/Networking/postman/model/event_listing_model.dart';
 
 class AddEventController extends GetxController {
+  Rx<DateTime?> selectedDate = Rx<DateTime?>(null);
+
+  void updateDate(DateTime date) {
+    selectedDate.value = date;
+  }
+
   var event = Event(
     title: "",
     description: "",
@@ -40,11 +46,11 @@ class AddEventController extends GetxController {
     });
   }
 
-  void updateDate(DateTime date) {
-    event.update((val) {
-      val!.date = date;
-    });
-  }
+  // void updateDate(DateTime date) {
+  //   event.update((val) {
+  //     val!.date = date;
+  //   });
+  // }
 
   void updateTime(TimeOfDay time) {
     event.update((val) {

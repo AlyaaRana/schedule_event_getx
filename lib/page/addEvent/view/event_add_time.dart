@@ -23,10 +23,18 @@ class EventAddTime extends StatelessWidget {
               children: [
                 Icon(Icons.arrow_back_ios_outlined,size: 15,),
                 SizedBox(width: 5,),
-                Text("Add New Event", style: titleEvent(),)
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      child:
+                      Text("2hr Personal Training",style: titleEvent(),
+                      )
+                  ),
+                ),
               ],
             ),
-            TypeDurationSession(),
+            TypeDurationSession(isTextVisible: false),
             SelectDate(),
             SingaporeTime(iconColor: Colors.black, textColor: Colors.black),
             SizedBox(height: 20,),
