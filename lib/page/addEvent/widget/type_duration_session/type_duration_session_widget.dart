@@ -3,7 +3,9 @@ import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 
 class TypeDurationSession extends StatelessWidget {
-  const TypeDurationSession({super.key});
+  final bool isTextVisible;
+
+  const TypeDurationSession({Key? key, this.isTextVisible = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +18,22 @@ class TypeDurationSession extends StatelessWidget {
               TypeDurationWidget(
                 image: Icons.directions_run,
                 text: 'In-Person',
-              ),TypeDurationWidget(
+              ),
+              TypeDurationWidget(
                 image: Icons.access_time,
                 text: '30',
-              ),TypeDurationWidget(
+              ),
+              TypeDurationWidget(
                 image: Icons.plus_one,
                 text: 'Multiple',
               ),
             ],
           ),
-          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor cras eget aliquam id facilisis dui. Feugiat vel sapien aliquam, pellentesque placerat in in sit mi. Purus sed interdum amet tristique elementum pretium ",
-            style: caption3(),)
+          if (isTextVisible)
+            Text(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor cras eget aliquam id facilisis dui. Feugiat vel sapien aliquam, pellentesque placerat in in sit mi. Purus sed interdum amet tristique elementum pretium ",
+              style: caption3(),
+            ),
         ],
       ),
     );

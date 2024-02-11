@@ -22,6 +22,15 @@ class EventAddNote extends StatelessWidget {
                 children: [
                   HiresProfile(),
                   SizedBox(height: 20,),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                        child:
+                        Text("2hr Personal Training",style: titleEvent(),
+                        )
+                    ),
+                  ),
                   TypeDurationSession(),
                   SizedBox(height: 20,),
                   AddNewButton(),
