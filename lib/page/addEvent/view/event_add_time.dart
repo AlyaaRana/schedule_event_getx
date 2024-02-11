@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
+import 'package:schedule_event_getx/page/addEvent/widget/countdown_timer_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/nextto_add_note_button.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
@@ -41,8 +42,7 @@ class EventAddTime extends StatelessWidget {
             Text("Select Time",style: txtCapt(),),
             SizedBox(height: 10,),
             Text("Duration : 30",style: txtDuration(),),
-            NextToAddNote()
-
+            NextToAddNote(),
           ],
         ),
       ),

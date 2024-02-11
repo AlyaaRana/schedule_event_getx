@@ -21,7 +21,7 @@ class SelectDate extends StatelessWidget {
         print(eventController.selectedDate.value);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Container(
           width: 204,
           height: 48,
