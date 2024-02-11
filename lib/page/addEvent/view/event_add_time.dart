@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
-import 'package:schedule_event_getx/page/addEvent/controller/event_controller.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/countdown_timer_widget.dart';
+import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/nextto_add_note_button.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 
 class EventAddTime extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
@@ -27,10 +25,14 @@ class EventAddTime extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Align(
-                      alignment: Alignment.centerLeft,
-                      child:
-                      Text("2hr Personal Training",style: titleEvent(),
-                      )
+                    alignment: Alignment.centerLeft,
+                    child: Obx(() {
+                      String titleValue = addEventController.titleController.text;
+                      return Text(
+                        titleValue,
+                        style: titleEvent(),
+                      );
+                    }),
                   ),
                 ),
               ],

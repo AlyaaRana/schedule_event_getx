@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:schedule_event_getx/Networking/postman/api_client.dart';
-import 'package:schedule_event_getx/Networking/postman/model/event_listing_model.dart';
+import 'package:schedule_event_getx/Networking/postman/model/event_model.dart';
 
 class EventController extends GetxController {
   final ApiClient apiClient = ApiClient();
@@ -11,7 +11,7 @@ class EventController extends GetxController {
   Future<void> fetchEvents() async {
     try {
       final response = await apiClient.get(
-          Uri.parse("https://03e827df-d756-415c-8cba-6988f9848e1d.mock.pstmn.io/getevent"));
+          Uri.parse("https://b7f8c045-be0b-4260-811c-0f4efebb0a67.mock.pstmn.io/getevent"));
 
       if (response.statusCode == 200) {
         final jsonBody = json.decode(response.body);
@@ -45,7 +45,7 @@ class EventController extends GetxController {
   Future<void> createEvent(Event newEvent) async {
     try {
       final response = await apiClient.post(
-        Uri.parse("https://03e827df-d756-415c-8cba-6988f9848e1d.mock.pstmn.io/createevent"),
+        Uri.parse("https://b7f8c045-be0b-4260-811c-0f4efebb0a67.mock.pstmn.io/createevent"),
         headers: <String, String>{
           'Content-Type': 'application/json',
         },

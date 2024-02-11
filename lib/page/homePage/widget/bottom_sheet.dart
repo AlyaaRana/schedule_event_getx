@@ -50,7 +50,6 @@ class BottomSheetView extends StatelessWidget {
                           },
                           child: Icon(Icons.calendar_month, size: 33,),
                         ),
-
                         GestureDetector(
                           onTap: () {
                             Get.to(() => AddEvent());
