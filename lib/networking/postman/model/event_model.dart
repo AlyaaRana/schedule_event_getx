@@ -3,15 +3,26 @@ import 'package:intl/intl.dart';
 
 
 class Event {
-  late final String title;
+  String title = ''; // Nilai awal kosong
   final String description;
-  late final String type;
-  late final Duration duration;
-  late final String session;
-  late final DateTime date;
-  late final TimeOfDay startTime;
-  late final TimeOfDay endTime;
-  late final String note;
+  String type = ''; // Nilai awal kosong
+  Duration duration = Duration.zero; // Nilai awal kosong
+  String session = ''; // Nilai awal kosong
+  DateTime date = DateTime.now(); // Nilai awal kosong
+  TimeOfDay startTime = TimeOfDay.now(); // Nilai awal kosong
+  TimeOfDay endTime = TimeOfDay.now(); // Nilai awal kosong
+  String note = ''; // Nilai awal kosong
+//   late final String title;
+//   final String description;
+//   late final String type;
+//   late final Duration duration;
+//   late final String session;
+//   late final DateTime date;
+//   late final TimeOfDay startTime;
+//   late final TimeOfDay endTime;
+//   late final String note;
+
+
 
   Event({
     required this.title,
@@ -63,19 +74,3 @@ class Event {
   }
 }
 
-// Example Usage:
-void main() {
-  Event event = Event(
-    title: "Sample Event",
-    description: "Sample Description",
-    type: "Meeting",
-    duration: Duration(minutes: 60),
-    session: "Morning",
-    date: DateTime.now(),
-    startTime: TimeOfDay.now(),
-    endTime: TimeOfDay.now(),
-    note: "Sample Note",
-  );
-
-  print("Event: ${event.toJson()}");
-}

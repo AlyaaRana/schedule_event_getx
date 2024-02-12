@@ -9,6 +9,8 @@ import 'package:schedule_event_getx/page/addEvent/widget/textfield/text_field.da
 
 class AddEvent extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());
+
+
   AddEvent({super.key});
 
   @override
@@ -54,7 +56,7 @@ class AddEvent extends StatelessWidget {
                       labelText: 'Add session',
                     ),
                     SizedBox(height: 50,),
-                    ButtonSaveTitle()
+                    ButtonSaveTitle(addEventController: addEventController),
                   ]
               ),
             )
