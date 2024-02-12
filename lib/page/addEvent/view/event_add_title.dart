@@ -48,6 +48,7 @@ class AddEvent extends StatelessWidget {
                       labelText: "Input duration",
                       width: 200, // Provide a specific width
                     ),
+                    SizedBox(height: 25,),
                     CustomTextField(
                       controller: addEventController.sessionController,
                       labelText: 'Add session',
