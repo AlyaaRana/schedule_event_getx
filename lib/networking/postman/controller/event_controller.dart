@@ -22,9 +22,15 @@ class EventController extends GetxController {
               .toList();
 
           events.assignAll(fetchedEvents);
-        } else {
-          final Event fetchedEvent = Event.fromJson(jsonBody as Map<String, dynamic>);
+        } else if (jsonBody is Map<String, dynamic>) {
+          final Event fetchedEvent = Event.fromJson(jsonBody);
           events.assignAll([fetchedEvent]);
+        } else {
+          Get.snackbar(
+            "Error",
+            "Invalid response format",
+            snackPosition: SnackPosition.BOTTOM,
+          );
         }
       } else {
         Get.snackbar(
@@ -75,8 +81,4 @@ class EventController extends GetxController {
       );
     }
   }
-
-
 }
-
-

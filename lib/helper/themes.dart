@@ -98,6 +98,14 @@ TextStyle subType() {
           fontSize: figmaFontsize(9)));
 }
 
+TextStyle txtSeeMore() {
+  return GoogleFonts.poppins(
+      textStyle: TextStyle(
+          color: ashGrey,
+          fontWeight: FontWeight.w500,
+          fontSize: figmaFontsize(10)));
+}
+
 //Schedule Event
 TextStyle txtScheduleEvent() {
   return GoogleFonts.poppins(
