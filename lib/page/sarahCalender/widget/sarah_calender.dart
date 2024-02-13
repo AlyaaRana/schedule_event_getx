@@ -110,9 +110,9 @@ class ListCalenderWidget extends StatelessWidget {
                                         color: matGreen,
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      // child: Center(
-                                      //   child: Text(formatDuration(event.duration), style: txtTime(ashGrey)),
-                                      // ),
+                                      child: Center(
+                                        child: Text(""),
+                                      ),
                                     ),
                                   ],
                                 ),
