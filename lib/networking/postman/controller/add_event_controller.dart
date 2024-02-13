@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 
 // class AddEventController extends GetxController {
@@ -114,7 +115,7 @@ class AddEventController extends GetxController {
     description: "",
     type: "",
     duration: Duration(),
-    date: DateTime.now(),
+    date: DateFormat("yyyy-MM-dd").format(DateTime.now()),
     startTime: TimeOfDay.now(),
     endTime: TimeOfDay.now(),
     note: "",
@@ -192,7 +193,7 @@ class AddEventController extends GetxController {
       description: "description",
       type: "",
       duration: Duration(),
-      date: DateTime.now(),
+      date: DateFormat("yyyy-MM-dd").format(DateTime.now()),
       startTime: TimeOfDay.now(),
       endTime: TimeOfDay.now(),
       note: "",
