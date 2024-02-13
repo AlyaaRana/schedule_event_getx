@@ -7,7 +7,8 @@ import 'package:schedule_event_getx/page/addEvent/view/event_add_day.dart';
 import '../../../helper/themes.dart';
 
 class SelectDate extends StatelessWidget {
-  const SelectDate({super.key});
+  final AddEventController addEventController = Get.find<AddEventController>();
+  SelectDate({super.key});
 
   @override
   Widget build(BuildContext context) {
