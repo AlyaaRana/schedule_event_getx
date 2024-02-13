@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 
 class TypeDurationSession extends StatelessWidget {
   final bool isTextVisible;
+  final AddEventController addEventController = Get.find<AddEventController>();
 
-  const TypeDurationSession({Key? key, this.isTextVisible = true}) : super(key: key);
+  TypeDurationSession({Key? key, this.isTextVisible = true}) : super(key: key);
+
+  String formatDuration(Duration duration) {
+    // Convert duration to a readable string
+    int minutes = duration.inMinutes;
+    return '$minutes ';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +26,15 @@ class TypeDurationSession extends StatelessWidget {
             children: [
               TypeDurationWidget(
                 image: Icons.directions_run,
-                text: 'In-Person',
+                text: addEventController.event.value?.type ?? '',
               ),
               TypeDurationWidget(
                 image: Icons.access_time,
-                text: '30',
+                text: formatDuration(addEventController.event.value?.duration ?? Duration.zero),
               ),
               TypeDurationWidget(
                 image: Icons.plus_one,
-                text: 'Multiple',
+                text: addEventController.event.value?.session ?? '',
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:schedule_event_getx/helper/themes.dart';
 
 class TimePicker extends StatefulWidget {
   const TimePicker({super.key});
@@ -20,7 +21,7 @@ class _TimePickerState extends State<TimePicker> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       children: [
         ...List.generate(
           times.length,
@@ -30,12 +31,12 @@ class _TimePickerState extends State<TimePicker> {
               Expanded(
                 child: MaterialButton(
                   color: selectTime == times[index]
-                      ? Colors.purple
+                      ? matTurquoies
                       : Colors.white,
                   shape: RoundedRectangleBorder(
                     side: selectTime == times[index]
-                        ? const BorderSide(color: Colors.purple)
-                        : const BorderSide(width: 2, color: Colors.black),
+                        ? const BorderSide(color: Colors.transparent)
+                        : const BorderSide(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   onPressed: () {

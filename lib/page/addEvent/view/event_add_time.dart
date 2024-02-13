@@ -14,9 +14,22 @@ class EventAddTime extends StatelessWidget {
 
   EventAddTime({Key? key}) : super(key: key);
 
+  String formatDuration(Duration duration) {
+    // Convert duration to a readable string
+    int minutes = duration.inMinutes;
+    return 'Duration : $minutes ';
+  }
+
   @override
   Widget build(BuildContext context) {
-    final event = Get.arguments as Event;
+    final event = Get.arguments as Event?;
+    if (event == null) {
+      return Scaffold(
+        body: Center(
+          child: Text('Event is null'),
+        ),
+      );
+    }
 
     return Scaffold(
       body: Container(
@@ -31,12 +44,10 @@ class EventAddTime extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Obx(() {
-                      return Text(
-                        event.title,
-                        style: titleEvent(),
-                      );
-                    }),
+                    child: Text(
+                      event.title,
+                      style: titleEvent(),
+                    ),
                   ),
                 ),
               ],
@@ -47,11 +58,11 @@ class EventAddTime extends StatelessWidget {
             SizedBox(height: 20),
             Text("Select Time", style: txtCapt()),
             Container(
-              height: 300,
+              height: 350,
               child: TimePicker(),
             ),
             SizedBox(height: 10),
-            Text("Duration : 30", style: txtDuration()),
+            Text(formatDuration(addEventController.event.value?.duration ?? Duration.zero), style: txtDuration()),
             NextToAddNote(),
           ],
         ),
