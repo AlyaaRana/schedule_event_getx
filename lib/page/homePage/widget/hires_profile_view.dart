@@ -14,7 +14,12 @@ class HiresProfile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.arrow_back_ios_outlined,size: 20,),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios_outlined, size: 20,),
+          ),
           UserProfile(backgroundColor: Colors.white,),
           SizedBox(width: 140,),
           Icon(

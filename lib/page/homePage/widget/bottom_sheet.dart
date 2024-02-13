@@ -52,7 +52,7 @@ class BottomSheetView extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.to(() => AddEvent());
+                            Get.toNamed('/addEvent');
                           },
                           child: Container(
                             width: 40,
