@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:schedule_event_getx/Page/HomePage/Widget/hires_profile_view.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
+import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 import 'package:schedule_event_getx/page/addNote/widget/addnewevent_button.dart';
 import 'package:schedule_event_getx/page/addNote/widget/addnote_button.dart';
+import 'package:schedule_event_getx/page/addNote/widget/listview_widget.dart';
 import 'package:schedule_event_getx/page/addNote/widget/schedulesession_button.dart';
 
 class EventAddNote extends StatelessWidget {
-  const EventAddNote({super.key});
+  final AddEventController addEventController = Get.find<AddEventController>();
+  EventAddNote({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    // Retrieve the event data from the previous screen
+    final Event? event = Get.arguments as Event?;
+
     return Scaffold(
       body: Column(
         children: [
@@ -26,9 +34,10 @@ class EventAddNote extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                        child:
-                        Text("2hr Personal Training",style: titleEvent(),
-                        )
+                      child: Text(
+                        "2hr Personal Training",
+                        style: titleEvent(),
+                      ),
                     ),
                   ),
                   TypeDurationSession(),
@@ -53,12 +62,14 @@ class EventAddNote extends StatelessWidget {
                       child: AddNoteButton(),
                     ),
                   ),
+                  // Check if event is not null before using it
+                  if (event != null)
+                    EventListView(event: event),
                   SizedBox(height: 20),
                 ],
               ),
             ),
           ),
-          // Spacer(),
           ScheduleSessionButton(),
           SizedBox(height: 15,)
         ],

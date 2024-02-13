@@ -21,6 +21,8 @@ class ButtonSaveTitle extends StatelessWidget {
           });
 
           Get.offAllNamed('/threecontent', arguments: addEventController.event.value);
+          Get.offAllNamed('/listview', arguments: addEventController.event.value);
+          Get.offAllNamed('/eventaddnote', arguments: addEventController.event.value);
           Get.toNamed('/eventAddTime',  arguments: addEventController.event.value);
         }
       },

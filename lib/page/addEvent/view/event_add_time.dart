@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/nextto_add_note_button.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/time_picker_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
@@ -17,7 +16,7 @@ class EventAddTime extends StatelessWidget {
   String formatDuration(Duration duration) {
     // Convert duration to a readable string
     int minutes = duration.inMinutes;
-    return 'Duration : $minutes ';
+    return 'Duration : $minutes mins ';
   }
 
   @override
@@ -57,13 +56,12 @@ class EventAddTime extends StatelessWidget {
             SingaporeTime(iconColor: Colors.black, textColor: Colors.black),
             SizedBox(height: 20),
             Text("Select Time", style: txtCapt()),
+            Text(formatDuration(addEventController.event.value?.duration ?? Duration.zero), style: txtDuration()),
             Container(
               height: 350,
               child: TimePicker(),
             ),
             SizedBox(height: 10),
-            Text(formatDuration(addEventController.event.value?.duration ?? Duration.zero), style: txtDuration()),
-            NextToAddNote(),
           ],
         ),
       ),

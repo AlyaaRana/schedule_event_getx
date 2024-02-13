@@ -11,7 +11,6 @@ class TypeDurationSession extends StatelessWidget {
   TypeDurationSession({Key? key, this.isTextVisible = true}) : super(key: key);
 
   String formatDuration(Duration duration) {
-    // Convert duration to a readable string
     int minutes = duration.inMinutes;
     return '$minutes ';
   }

@@ -20,7 +20,12 @@ class AddEvent extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.arrow_back_ios_outlined, size: 15,),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.arrow_back_ios_outlined, size: 20,),
+                ),
                 SizedBox(width: 5,),
                 Text("Add New Event", style: titleEvent(),)
               ],
