@@ -17,9 +17,6 @@ class SelectDate extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         await Get.to(SelectDay());
-        // Update the text when returning from SelectDay
-        // Note: Ensure you import 'package:intl/intl.dart' for DateFormat
-        print(eventController.selectedDate.value);
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -41,7 +38,6 @@ class SelectDate extends StatelessWidget {
               ),
             );
           }),
-
         ),
       ),
     );

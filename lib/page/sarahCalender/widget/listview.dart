@@ -18,30 +18,35 @@ class ListViewCalender extends StatelessWidget {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ClipOval(
-                child: Image.asset(
-                  "assets/image/profile.jpg",
-                  width: 50,
-                  height: 50,
-                ),
-              ),
-              Column(
+              Row(
                 children: [
-                  Text(event.title, style: subTitleEvent()),
-                  Row(
+                  ClipOval(
+                    child: Image.asset(
+                      "assets/image/profile.jpg",
+                      width: 50,
+                      height: 50,
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  Column(
                     children: [
-                      Text("Coach", style: txtCoach()),
-                      Text(event.type, style: subType()),
+                      Text(event.title, style: subTitleEvent()),
+                      Row(
+                        children: [
+                          Text("Coach", style: txtCoach()),
+                          Text(event.type, style: subType()),
+                        ],
+                      ),
+                      Text(event.date, style: txtTime(ashGrey)),
+                      Row(
+                        children: [
+                          Text(event.startTime as String, style: txtTime(ashGrey)),
+                          Text(":", style: txtTime(ashGrey)),
+                          Text(event.endTime as String, style: txtTime(ashGrey)),
+                        ],
+                      )
                     ],
                   ),
-                  Text(event.date as String, style: txtTime(ashGrey)),
-                  Row(
-                    children: [
-                      Text(event.startTime as String, style: txtTime(ashGrey)),
-                      Text(":", style: txtTime(ashGrey)),
-                      Text(event.endTime as String, style: txtTime(ashGrey)),
-                    ],
-                  )
                 ],
               ),
               Container(
