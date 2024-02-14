@@ -60,7 +60,13 @@ class EventSend extends StatelessWidget {
                   SizedBox(height: 35,),
                   ViewCalender(),
                   SizedBox(height: 35,),
-                  Text("Done", style: subtitle3(blancoWhite),),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed("/viewTheCalender");
+                    },
+                    child: Text("Done", style: subtitle3(blancoWhite),), // Replace this with your actual ListCalenderView widget
+                  )
+
                 ],
               ),
             ),

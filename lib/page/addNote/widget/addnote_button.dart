@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
+import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
+import 'package:schedule_event_getx/page/addNote/view/event_addnote_view.dart';
 
 class AddNoteButton extends StatelessWidget {
-  const AddNoteButton({Key? key}) : super(key: key);
+  final AddEventController addEventController = Get.put(AddEventController());
+
+  AddNoteButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +44,37 @@ class AddNoteButton extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                  child: Icon(Icons.expand,size: 25,)
+                child: Icon(Icons.expand, size: 25),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Container(
                 padding: EdgeInsets.only(right: 120),
-                  child: Text("Write a note to share anything that will help prepare for our session.",
-                    style: message1(),
-                  )
+                child: TextField(
+                  controller: addEventController.noteController,
+                  style: message1(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Write a note to share anything that will help prepare for our session.',
+                  ),
+                ),
               ),
               SizedBox(height: 40),
               Align(
-                  alignment: Alignment.bottomRight,
-                  child: Icon(Icons.add_circle, color: Colors.black,size: 35,)
+                alignment: Alignment.bottomRight,
+                child: GestureDetector(
+                  onTap: () {
+                    if (addEventController.event.value != null) {
+                      addEventController.event.update((val) {
+                        val!.note = addEventController.noteController.text;
+                      });
+
+                      Get.back();
+                      Get.to(EventAddNote(), arguments: addEventController.event.value);
+                    }
+                  },
+                  child: Icon(Icons.add_circle, color: Colors.black, size: 35),
+
+                ),
               ),
             ],
           ),

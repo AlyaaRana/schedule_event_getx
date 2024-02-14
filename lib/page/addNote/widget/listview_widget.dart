@@ -19,72 +19,75 @@ class EventListView extends StatelessWidget {
     Event? event = addEventController.event.value;
 
     if (event == null) {
-      // Return an empty container or some placeholder if event is null
       return Container();
     }
 
     return Container(
       margin: const EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              ClipOval(
-                child: Image.asset(
-                  "assets/image/profile.jpg",
-                  width: 50,
-                  height: 50,
-                ),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(event.title ?? '', style: subTitleEvent()),
-              SizedBox(height: 3),
-              Row(
-                children: [
-                  Text("Coach", style: txtCoach()),
-                  SizedBox(width: 10),
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFBCDCDA),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Text(
-                      event.type ?? '',
-                      style: subType(),
-                    ),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                ClipOval(
+                  child: Image.asset(
+                    "assets/image/profile.jpg",
+                    width: 50,
+                    height: 50,
                   ),
-                ],
-              ),
-              Text(event.date ?? '', style: txtTime(ashGrey)),
-              Row(
-                children: [
-                  Text(Event.formatTimeOfDay(event.startTime) ?? '', style: txtTime(ashGrey)),
-                  SizedBox(width: 5),
-                  Text("-", style: txtTime(ashGrey)),
-                  SizedBox(width: 5),
-                  Text(Event.formatTimeOfDay(event.endTime) ?? '', style: txtTime(ashGrey)),
-                ],
-              ),
-            ],
-          ),
-          Container(
-            width: 88,
-            height: 33,
-            decoration: BoxDecoration(
-              color: matGreen,
-              borderRadius: BorderRadius.circular(10),
+                ),
+                SizedBox(width: 20,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(event.title ?? '', style: subTitleEvent()),
+                    SizedBox(height: 3),
+                    Row(
+                      children: [
+                        Text("Coach", style: txtCoach()),
+                        SizedBox(width: 10),
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFBCDCDA),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Text(
+                            event.type ?? '',
+                            style: subType(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(event.date ?? '', style: txtTime(ashGrey)),
+                    Row(
+                      children: [
+                        Text(Event.formatTimeOfDay(event.startTime) ?? '', style: txtTime(ashGrey)),
+                        SizedBox(width: 5),
+                        Text("-", style: txtTime(ashGrey)),
+                        SizedBox(width: 5),
+                        Text(Event.formatTimeOfDay(event.endTime) ?? '', style: txtTime(ashGrey)),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
-            child: Center(
-              child: Text(formatDuration(event.duration ?? Duration.zero)),
+            Container(
+              width: 88,
+              height: 33,
+              decoration: BoxDecoration(
+                color: matGreen,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Text(formatDuration(event.duration ?? Duration.zero)),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
