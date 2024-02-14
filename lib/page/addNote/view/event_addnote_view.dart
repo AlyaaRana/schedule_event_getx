@@ -6,20 +6,31 @@ import 'package:schedule_event_getx/networking/postman/controller/add_event_cont
 import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
 import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
 import 'package:schedule_event_getx/page/addNote/widget/addnewevent_button.dart';
 import 'package:schedule_event_getx/page/addNote/widget/addnote_button.dart';
 import 'package:schedule_event_getx/page/addNote/widget/listview_widget.dart';
 import 'package:schedule_event_getx/page/addNote/widget/schedulesession_button.dart';
 
-class EventAddNote extends StatelessWidget {
+class EventAddNote extends StatefulWidget {
+  EventAddNote({Key? key}) : super(key: key);
+
+  @override
+  _EventAddNoteState createState() => _EventAddNoteState();
+}
+
+class _EventAddNoteState extends State<EventAddNote> {
   final AddEventController addEventController = Get.find<AddEventController>();
-  EventAddNote({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    // Retrieve the event data from the previous screen
-    final Event? event = Get.arguments as Event?;
+    final event = Get.arguments as Event?;
+    // if (event == null) {
+    //   return Scaffold(
+    //     body: Center(
+    //       child: Text('Event is null'),
+    //     ),
+    //   );
+    // }
 
     return Scaffold(
       body: Column(
@@ -35,7 +46,8 @@ class EventAddNote extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "2hr Personal Training",
+                        "2hr Personal ",
+                        // event.title,
                         style: titleEvent(),
                       ),
                     ),
@@ -55,16 +67,28 @@ class EventAddNote extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 15),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: AddNoteButton(),
-                    ),
-                  ),
-                  // Check if event is not null before using it
-                  if (event != null)
-                    EventListView(event: event),
+                  // if (event == null)
+                  //   Align(
+                  //     alignment: Alignment.centerLeft,
+                  //     child: Padding(
+                  //       padding: EdgeInsets.symmetric(horizontal: 15),
+                  //       child: AddNoteButton(),
+                  //     ),
+                  //   )
+                  // else
+                  //   Align(
+                  //     alignment: Alignment.centerLeft,
+                  //     child: Padding(
+                  //       padding: EdgeInsets.symmetric(horizontal: 15),
+                  //       child: Text(
+                  //         event!.note,
+                  //         style: message1(),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // // Check if event is not null before using it
+                  // if (event != null)
+                  EventListView(event: event),
                   SizedBox(height: 20),
                 ],
               ),

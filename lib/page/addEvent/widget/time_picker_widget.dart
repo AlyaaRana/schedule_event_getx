@@ -84,8 +84,6 @@ class _TimePickerState extends State<TimePicker> {
                             val!.startTime = selectTime!;
                             val.endTime = endOfDay;
                           });
-
-
                           Get.toNamed('/eventaddnote');
                         },
 
