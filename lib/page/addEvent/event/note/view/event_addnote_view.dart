@@ -5,6 +5,7 @@ import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 import 'package:schedule_event_getx/page/addEvent/event/day/widget/txtSingaporeTime.dart';
+import 'package:schedule_event_getx/page/addEvent/event/note/widget/addnote_button.dart';
 import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_session_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/event/note/widget/addnewevent_button.dart';
 import 'package:schedule_event_getx/page/addEvent/event/note/widget/listview_widget.dart';
@@ -22,14 +23,16 @@ class _EventAddNoteState extends State<EventAddNote> {
 
   @override
   Widget build(BuildContext context) {
-    final event = Get.arguments as Event?;
-    // if (event == null) {
-    //   return Scaffold(
-    //     body: Center(
-    //       child: Text('Event is null'),
-    //     ),
-    //   );
-    // }
+    String title = "";
+    Duration duration = Duration.zero;
+    String session = "";
+
+    var event = Get.arguments as Event?;
+    if (event != null) {
+      title = event.title;
+      duration = event.duration;
+      session = event.session;
+    }
 
     return Scaffold(
       body: Column(
@@ -44,9 +47,7 @@ class _EventAddNoteState extends State<EventAddNote> {
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        "2hr Personal ",
-                        // event.title,
+                      child: Text( title,
                         style: titleEvent(),
                       ),
                     ),
@@ -66,28 +67,14 @@ class _EventAddNoteState extends State<EventAddNote> {
                     ),
                   ),
                   SizedBox(height: 15),
-                  // if (event == null)
-                  //   Align(
-                  //     alignment: Alignment.centerLeft,
-                  //     child: Padding(
-                  //       padding: EdgeInsets.symmetric(horizontal: 15),
-                  //       child: AddNoteButton(),
-                  //     ),
-                  //   )
-                  // else
-                  //   Align(
-                  //     alignment: Alignment.centerLeft,
-                  //     child: Padding(
-                  //       padding: EdgeInsets.symmetric(horizontal: 15),
-                  //       child: Text(
-                  //         event!.note,
-                  //         style: message1(),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // // Check if event is not null before using it
-                  // if (event != null)
-                  EventListView(event: event),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: AddNoteButton(),
+                      )
+                  ),
+                  EventListView(event: event,),
                   SizedBox(height: 20),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/view/event_add_day.dart';
 import 'package:schedule_event_getx/page/addEvent/event/note/view/event_addnote_view.dart';
 import 'package:schedule_event_getx/page/addEvent/event/note/widget/listview_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/event/sent/view/event_hasbeenseen_view.dart';
@@ -7,8 +8,6 @@ import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duratio
 import 'package:schedule_event_getx/page/addEvent/event/title_type_duration/view/event_add_title.dart';
 import 'package:schedule_event_getx/page/homePage/view/home_page_view.dart';
 import 'package:schedule_event_getx/page/sarahCalender/view/list_calender_view.dart';
-
-
 
 class MyAppRoutes {
   static final routes = [
@@ -43,6 +42,10 @@ class MyAppRoutes {
     GetPage(
       name: '/eventsend',
       page: () => EventSend(),
+    ),
+    GetPage(
+      name: '/selectday',
+      page: () => SelectDay(),
     ),
   ];
 

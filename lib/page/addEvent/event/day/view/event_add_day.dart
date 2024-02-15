@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:schedule_event_getx/Page/HomePage/Widget/hires_profile_view.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
+import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 import 'package:schedule_event_getx/page/addEvent/event/day/widget/calender_table.dart';
 import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_session_widget.dart';
 
@@ -12,6 +13,12 @@ class SelectDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String title = "";
+
+    var event = Get.arguments as Event?;
+    if (event != null) {
+      title = event.title;
+    }
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,12 +32,12 @@ class SelectDay extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "2hr Personal Training",
+                    title,
                     style: titleEvent(),
                   ),
                 ),
               ),
-              TypeDurationSession(),
+              TypeDurationSession(isTextVisible: true),
               CalendarTable(),
               Container(
                 padding: EdgeInsets.all(5),
