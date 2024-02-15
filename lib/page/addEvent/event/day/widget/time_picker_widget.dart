@@ -3,17 +3,27 @@ import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
+import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
 
 class TimePicker extends StatefulWidget {
-  // Remove the Get.put() from here
 
   TimePicker({Key? key}) : super(key: key);
 
   @override
   State<TimePicker> createState() => _TimePickerState();
+
+  static String formatTimeOfDay(TimeOfDay? timeOfDay) {
+    if (timeOfDay != null) {
+      return '${timeOfDay.hour}:${timeOfDay.minute}';
+    } else {
+      return ''; // or any default value
+    }
+  }
 }
 
 class _TimePickerState extends State<TimePicker> {
+
+
   List<TimeOfDay> times = [
     const TimeOfDay(hour: 10, minute: 00),
     const TimeOfDay(hour: 11, minute: 00),
@@ -67,24 +77,20 @@ class _TimePickerState extends State<TimePicker> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
-                          // Get the selected TimeOfDay
-                          final selectedDateTime = DateTime(2024, 02, 11, selectTime!.hour, selectTime!.minute);
+                          if (selectTime != null) {
+                            final selectedDateTime = DateTime(2024, 02, 11, selectTime!.hour, selectTime!.minute);
+                            final duration = Get.find<AddEventController>().event.value?.duration ?? Duration.zero;
+                            final endTime = selectedDateTime.add(duration);
+                            final endOfDay = TimeOfDay.fromDateTime(endTime);
 
-                          // Get the duration from the AddEventController
-                          final duration = Get.find<AddEventController>().event.value?.duration ?? Duration.zero;
-
-                          // Calculate the end time by adding duration to selectedDateTime
-                          final endTime = selectedDateTime.add(duration);
-
-                          // Convert end time to TimeOfDay
-                          final endOfDay = TimeOfDay.fromDateTime(endTime);
-
-                          // Update the AddEventController with start time and end time
-                          Get.find<AddEventController>().event.update((val) {
-                            val!.startTime = selectTime!;
-                            val.endTime = endOfDay;
-                          });
-                          Get.toNamed('/eventaddnote');
+                            Get.find<AddEventController>().event.update((val) {
+                              val!.startTime = selectTime!;
+                              val.endTime = endOfDay;
+                            });
+                            Get.toNamed('/eventaddnote');
+                          } else {
+                            print("Error: selectTime is null");
+                          }
                         },
 
                         child: const Text(

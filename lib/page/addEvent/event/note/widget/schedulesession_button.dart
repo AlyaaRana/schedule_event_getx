@@ -10,13 +10,7 @@ class ScheduleSessionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.bottomSheet(
-          BottomSheetTerms.buildBottomSheetTerms(
-            context,
-            MediaQuery.of(context).size.width,
-            MediaQuery.of(context).size.height,
-          ),
-        );
+        Get.toNamed('/eventsend');
       },
       child: Container(
         height: 48,

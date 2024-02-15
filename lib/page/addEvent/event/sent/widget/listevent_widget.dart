@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/time_picker_widget.dart';
 import 'package:schedule_event_getx/page/addEvent/event/day/widget/txtSingaporeTime.dart';
 import '../../../../../networking/postman/model/event_model.dart';
 
@@ -12,16 +13,20 @@ class ListEventSent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Event? event = addEventController.event.value;
+    Duration duration = Duration.zero;
 
-    if (event == null) {
-      return Container();
+    var event = Get.arguments as Event?;
+    if (event != null) {
+      duration = event.duration;
     }
 
     String formatDuration(Duration duration) {
       int minutes = duration.inMinutes;
       return '$minutes ';
     }
+
+    DateTime selectedDate = addEventController.selectedDate.value ?? DateTime.now();
+    String formattedDate = DateFormat('EEEE, MMMM d, y').format(selectedDate);
 
     return Align(
       alignment: Alignment.centerLeft,
@@ -40,18 +45,16 @@ class ListEventSent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      event.date != null
-                          ? DateFormat('EEEE, d MMMM, y').format(DateTime.parse(event.date!))
-                          : '',
+                      formattedDate,
                       style: txtTime(blancoWhite),
                     ),
                     Row(
                       children: [
-                        Text(Event.formatTimeOfDay(event.startTime) ?? '', style: txtTime(blancoWhite)),
+                        Text(TimePicker.formatTimeOfDay(event?.startTime), style: txtTime(ashGrey)),
                         SizedBox(width: 5),
                         Text("-", style: txtTime(blancoWhite)),
                         SizedBox(width: 5),
-                        Text(Event.formatTimeOfDay(event.endTime) ?? '', style: txtTime(blancoWhite)),
+                        Text(TimePicker.formatTimeOfDay(event?.endTime), style: txtTime(ashGrey)),
                       ],
                     ),
                   ],
@@ -64,7 +67,7 @@ class ListEventSent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                    child: Text('${formatDuration(event.duration ?? Duration.zero)} mins', style: caption2()),
+                    child: Text(formatDuration(duration), style: caption2()),
                   ),
                 ),
               ],

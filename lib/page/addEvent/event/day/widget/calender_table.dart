@@ -22,7 +22,10 @@ class _CalendarTableState extends State<CalendarTable> {
     setState(() {
       selectedDate = day;
     });
+    eventController.updateDate(day);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
