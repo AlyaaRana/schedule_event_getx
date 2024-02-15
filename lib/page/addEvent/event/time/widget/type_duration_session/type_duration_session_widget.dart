@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_widget.dart';
 
 class TypeDurationSession extends StatelessWidget {
   final bool isTextVisible;

@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:schedule_event_getx/page/addEvent/view/event_add_time.dart';
-import 'package:schedule_event_getx/page/addEvent/view/event_add_title.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
-import 'package:schedule_event_getx/page/addNote/view/event_addnote_view.dart';
-import 'package:schedule_event_getx/page/addNote/widget/listview_widget.dart';
-import 'package:schedule_event_getx/page/eventSent/view/event_hasbeenseen_view.dart';
+import 'package:schedule_event_getx/page/addEvent/event/time/view/event_add_time.dart';
+import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_session_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/title_type_duration/view/event_add_title.dart';
+import 'package:schedule_event_getx/page/addEvent/event/note/view/event_addnote_view.dart';
+import 'package:schedule_event_getx/page/addEvent/event/note/widget/listview_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/sent/view/event_hasbeenseen_view.dart';
 import 'package:schedule_event_getx/page/homePage/view/home_page_view.dart';
 import 'package:schedule_event_getx/page/sarahCalender/view/list_calender_view.dart';
 

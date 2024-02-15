@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/save_event_add_title_button.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/textfield/numerid_field.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/textfield/text_field.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/save_event_add_title_button.dart';
+import 'package:schedule_event_getx/page/addEvent/event/title_type_duration/widget/textfield/numerid_field.dart';
+import 'package:schedule_event_getx/page/addEvent/event/title_type_duration/widget/textfield/text_field.dart';
 
 class AddEvent extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());

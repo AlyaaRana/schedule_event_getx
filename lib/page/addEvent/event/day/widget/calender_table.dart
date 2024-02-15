@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
 class CalendarTable extends StatefulWidget {

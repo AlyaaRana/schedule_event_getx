@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
-import 'package:schedule_event_getx/page/eventSent/view/event_hasbeenseen_view.dart';
+import 'package:schedule_event_getx/page/addEvent/event/sent/view/event_hasbeenseen_view.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class SwipeableButton extends StatefulWidget {

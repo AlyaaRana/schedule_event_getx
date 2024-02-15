@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
-import 'package:schedule_event_getx/page/addEvent/view/event_add_title.dart';
+import 'package:schedule_event_getx/page/addEvent/event/title_type_duration/view/event_add_title.dart';
 import 'package:schedule_event_getx/page/sarahCalender/view/list_calender_view.dart';
 
 

@@ -11,6 +11,25 @@ class ButtonSaveTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      // onTap: () {
+      //   final addEventController = Get.find<AddEventController>();
+      //
+      //   if (addEventController.event.value != null) {
+      //     addEventController.event.update((val) {
+      //       val!.title = addEventController.titleController.text;
+      //       val.duration = Duration(minutes: int.parse(addEventController.durationController.text));
+      //       val.session = addEventController.sessionController.text;
+      //       val.type = addEventController.typeController.text;
+      //     });
+      //
+      //     Get.offAllNamed('/threecontent');
+      //     Get.offAllNamed('/eventsend');
+      //     Get.offAllNamed('/listview');
+      //     Get.offAllNamed('/eventaddnote');
+      //     Get.toNamed('/eventAddTime');
+      //   }
+      // },
+
       onTap: () {
         if (addEventController.event.value != null) {
           addEventController.event.update((val) {
