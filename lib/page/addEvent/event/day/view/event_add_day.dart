@@ -6,7 +6,6 @@ import 'package:schedule_event_getx/networking/postman/controller/add_event_cont
 import 'package:schedule_event_getx/page/addEvent/event/day/widget/calender_table.dart';
 import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_session_widget.dart';
 
-
 class SelectDay extends StatelessWidget {
   final AddEventController addEventController = Get.find<AddEventController>();
   SelectDay({super.key});
