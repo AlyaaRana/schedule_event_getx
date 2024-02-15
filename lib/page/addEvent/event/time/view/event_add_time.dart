@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
 import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/select_date_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/time_picker_widget.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/type_duration_session/type_duration_session_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/select_date_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/time_picker_widget.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/txtSingaporeTime.dart';
+import 'package:schedule_event_getx/page/addEvent/event/time/widget/type_duration_session/type_duration_session_widget.dart';
 
 class EventAddTime extends StatelessWidget {
   final AddEventController addEventController = Get.find<AddEventController>();

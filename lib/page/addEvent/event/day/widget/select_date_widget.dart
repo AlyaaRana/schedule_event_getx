@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/page/addEvent/view/event_add_day.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/view/event_add_day.dart';
 
-import '../../../helper/themes.dart';
 
 class SelectDate extends StatelessWidget {
   final AddEventController addEventController = Get.find<AddEventController>();

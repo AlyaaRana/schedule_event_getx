@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
-
-import '../../../networking/postman/model/event_model.dart';
+import 'package:schedule_event_getx/page/addEvent/event/day/widget/txtSingaporeTime.dart';
+import '../../../../../networking/postman/model/event_model.dart';
 
 class ListEventSent extends StatelessWidget {
   ListEventSent({super.key});

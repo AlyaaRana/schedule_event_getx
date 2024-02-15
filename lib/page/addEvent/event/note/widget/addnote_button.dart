@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:schedule_event_getx/helper/themes.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/page/addNote/view/event_addnote_view.dart';
+import 'package:schedule_event_getx/page/addEvent/event/note/view/event_addnote_view.dart';
 
 class AddNoteButton extends StatelessWidget {
   final AddEventController addEventController = Get.put(AddEventController());

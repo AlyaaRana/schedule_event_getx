@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schedule_event_getx/Page/HomePage/Widget/user.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:schedule_event_getx/networking/postman/controller/add_event_controller.dart';
-import 'package:schedule_event_getx/networking/postman/model/event_model.dart';
-import 'package:schedule_event_getx/page/addEvent/widget/txtSingaporeTime.dart';
-import 'package:schedule_event_getx/page/eventSent/widget/listevent_widget.dart';
-import '../../../helper/themes.dart';
-import '../Widget/button_view_calender.dart';
+import 'package:schedule_event_getx/page/addEvent/event/sent/widget/listevent_widget.dart';
+import '../../../../../helper/themes.dart';
+import '../../../../eventSent/Widget/button_view_calender.dart';
 
 class EventSend extends StatelessWidget {
   final AddEventController addEventController = Get.find<AddEventController>();
